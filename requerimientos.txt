@@ -1,0 +1,14 @@
+AHORCADO CON VUE -PROYECTO-
+
+================MECANICAS==============
+las letras van a ser botones en la pantalla 
+y se seleccionaran con el mause encaso de que
+la oracion contenga esa letra se va a mostrar
+en la oracion la posicion de dicha letra ejem:
+mama --> m_m_ encaso de ser incorecta se
+comenzara a armar el AHORCADO
+
+==================EXTRAS====================
+- agregar tres dificultades (facil - normal - dificil)
+
+- agregar 4 categorias diferentes (animales, ciudades, etc)
