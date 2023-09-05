@@ -6,6 +6,93 @@
     <title>hombre palo</title>
 </head>
 <body>
-    hola
+    <div class="contpersona">
+    <img src="./src/assets/cabeza.png" class="persona cabeza">
+    <img src="./src/assets/brazo izquierdo.png" class="persona brazoiz">
+    <img src="./src/assets/brazo derecho.png" class="persona brazode">
+    <img src="./src/assets/pie izquerdo.png" class="persona pieiz">
+    <img src="./src/assets/pie derecho.png" class="persona piede">
+    <img src="./src/assets/cuerpo.png" class="persona cuerpo">
+    </div>
 </body>
+
+<style>
+    .persona{
+    }
+     @keyframes girar {
+        0%{
+            transform: rotate(10deg)
+        }
+        50%{
+            transform: rotate(-10deg);
+        }
+
+        100%{
+            transform: rotate(10deg);
+        }
+        
+     }
+
+     .contpersona{
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        width: 100px;
+        transform-origin: 50% -5%;
+        animation: girar 5s infinite;
+     }
+
+     .cabeza{
+        transform-origin: bottom center;
+        position: absolute;
+        width: 110%;
+        left: -7%;
+        top: -100%;
+        z-index: 3;
+        animation: girar 5s infinite;
+     }
+     .cuerpo{
+        z-index: -1;
+        width: 100%;
+        z-index: 1;
+     }
+     
+     .brazoiz{
+        position: absolute;
+        width: 57%;
+        left:-35%;
+        z-index: 2;
+        top: 5%;
+        transform-origin: 100% 8%;
+        animation: girar 5s infinite;
+     }
+     .brazode{
+        position: absolute;
+        width: 57%;
+        top: 5%;
+        right:-35%;
+        z-index: 2;
+        transform-origin: 0% 8%;
+        animation: girar 5s infinite;
+     }
+
+     .pieiz{
+        position: absolute;
+        width: 53%;
+        top: 85%;
+        left: -12%;
+        z-index: -1;
+        transform-origin: top right;
+        animation: girar 5s ease-in infinite;
+     }
+     .piede{
+        position: absolute;
+        width: 53%;
+        top: 85%;
+        right: -12%;
+        z-index: -1;
+        transform-origin: top left;
+        animation: girar 5s infinite;
+     }
+</style>
 </html>
