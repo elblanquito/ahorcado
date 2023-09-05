@@ -4,7 +4,7 @@
   <div class="cont">
     <div class="subcont">
       <p class="tittle">El Ahorcado</p>
-      <button class="jugar" @click="jugar()">Jugar</button>
+      <button class="jugar" @click="jugar()">Empezar</button>
     </div>
 
   </div>
