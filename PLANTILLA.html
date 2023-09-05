@@ -6,17 +6,88 @@
     <title>hombre palo</title>
 </head>
 <body>
-    <div class="contpersona">
-    <img src="./src/assets/cabeza.png" class="persona cabeza">
-    <img src="./src/assets/brazo izquierdo.png" class="persona brazoiz">
-    <img src="./src/assets/brazo derecho.png" class="persona brazode">
-    <img src="./src/assets/pie izquerdo.png" class="persona pieiz">
-    <img src="./src/assets/pie derecho.png" class="persona piede">
-    <img src="./src/assets/cuerpo.png" class="persona cuerpo">
+    <div class="colina">
+        <div class="palo">
+            <div class="palo2">
+                <div class="palo2-"></div>
+                <div class="cuerda">
+                    <div class="cuerda2">
+                        <div class="contpersona">
+                            <img src="./src/assets/cabeza.png" class="persona cabeza">
+                            <img src="./src/assets/brazo izquierdo.png" class="persona brazoiz">
+                            <img src="./src/assets/brazo derecho.png" class="persona brazode">
+                            <img src="./src/assets/pie izquerdo.png" class="persona pieiz">
+                            <img src="./src/assets/pie derecho.png" class="persona piede">
+                            <img src="./src/assets/cuerpo.png" class="persona cuerpo">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
 </body>
 
 <style>
+    .colina{
+        position: absolute;
+        top:50%;
+        height: 120px;
+        width: 300px;
+        background-color: rgb(255, 230, 119);
+        border-radius: 300px 300px 0px 0px;
+    }
+
+    .palo{
+        height: 300px;
+        width: 20px;
+        background-color: rgb(121, 65, 26);
+        position: absolute;
+        top: -230%;
+        left: 45%;
+    }
+
+    .palo2{
+        height: 20px;
+        width: 200px;
+        background-color: rgb(121, 65, 26);
+        position: absolute;
+    }
+
+    .palo2-{
+        height: 10px;
+        width: 40%;
+        background-color: rgb(121, 66, 26);
+        transform-origin: right center;
+        transform: rotate(-38deg);
+    }
+
+    .cuerda{
+        height: 100px;
+        width: 7px;
+        background-color: rgb(238, 218, 204);
+        z-index: -1;
+        transform-origin: top center;
+        animation: girar 2s infinite ease-in-out;
+        position: absolute;
+        right: 6%;
+    }
+
+    .cuerda2{
+        height: 10%;
+        width: 500%;
+        background-color: rgb(145, 133, 124);
+        border-radius: 4px;
+        z-index: 2;
+        transform-origin: top center;
+        animation: girar 2s infinite ease-in-out;
+        position: absolute;
+        bottom: 0%;
+        left: -200%;
+    }
+
     .persona{
     }
      @keyframes girar {
@@ -35,8 +106,8 @@
 
      .contpersona{
         position: absolute;
-        top: 30%;
-        left: 30%;
+        top: 50%;
+        left: -90%;
         width: 100px;
         transform-origin: 50% -5%;
         animation: girar 5s infinite;
