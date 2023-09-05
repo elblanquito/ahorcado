@@ -3,8 +3,8 @@
 <template>
   <div class="cont">
     <div class="subcont">
-      <p class="tittle">El ahorcado</p>
-      <button class="jugar" @click="jugar()">jugar</button>
+      <p class="tittle">El Ahorcado</p>
+      <button class="jugar" @click="jugar()">Jugar</button>
     </div>
 
   </div>
