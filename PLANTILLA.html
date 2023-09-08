@@ -47,6 +47,8 @@
         position: absolute;
         top: -230%;
         left: 45%;
+        transform-origin: bottom center;
+        animation: balancearlow 4s infinite ease-in-out;
     }
 
     .palo2{
@@ -54,6 +56,8 @@
         width: 200px;
         background-color: rgb(121, 65, 26);
         position: absolute;
+        transform-origin: left center;
+        animation: balancearlow 4s infinite ease-in-out;
     }
 
     .palo2-{
@@ -70,7 +74,7 @@
         background-color: rgb(238, 218, 204);
         z-index: -1;
         transform-origin: top center;
-        animation: girar 2s infinite ease-in-out;
+        animation: balancear 4s infinite ease-in-out;
         position: absolute;
         right: 6%;
     }
@@ -82,7 +86,7 @@
         border-radius: 4px;
         z-index: 2;
         transform-origin: top center;
-        animation: girar 2s infinite ease-in-out;
+        animation: girar 0s infinite ease-in-out;
         position: absolute;
         bottom: 0%;
         left: -200%;
@@ -90,7 +94,7 @@
 
     .persona{
     }
-     @keyframes girar {
+     @keyframes balancear {
         0%{
             transform: rotate(10deg)
         }
@@ -101,16 +105,28 @@
         100%{
             transform: rotate(10deg);
         }
-        
+     }
+
+     @keyframes balancearlow {
+        0%{
+            transform: rotate(3deg)
+        }
+        50%{
+            transform: rotate(-3deg);
+        }
+
+        100%{
+            transform: rotate(3deg);
+        }
      }
 
      .contpersona{
         position: absolute;
         top: 50%;
-        left: -90%;
-        width: 100px;
+        left: -50%;
+        width: 200%;
         transform-origin: 50% -5%;
-        animation: girar 5s infinite;
+        animation: balancear 4s infinite ;
      }
 
      .cabeza{
@@ -120,7 +136,7 @@
         left: -7%;
         top: -100%;
         z-index: 3;
-        animation: girar 5s infinite;
+        animation: balancear 4s infinite;
      }
      .cuerpo{
         z-index: -1;
@@ -135,7 +151,7 @@
         z-index: 2;
         top: 5%;
         transform-origin: 100% 8%;
-        animation: girar 5s infinite;
+        animation: balancear 4s infinite;
      }
      .brazode{
         position: absolute;
@@ -144,7 +160,7 @@
         right:-35%;
         z-index: 2;
         transform-origin: 0% 8%;
-        animation: girar 5s infinite;
+        animation: balancear 4s infinite;
      }
 
      .pieiz{
@@ -154,7 +170,7 @@
         left: -12%;
         z-index: -1;
         transform-origin: top right;
-        animation: girar 5s ease-in infinite;
+        animation: balancear 4s ease-in infinite;
      }
      .piede{
         position: absolute;
@@ -163,7 +179,7 @@
         right: -12%;
         z-index: -1;
         transform-origin: top left;
-        animation: girar 5s infinite;
+        animation: balancear 4s infinite;
      }
 </style>
 </html>
