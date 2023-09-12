@@ -5,6 +5,7 @@
     <div class="subcont">
       <p class="tittle">El Ahorcado</p>
       <button class="jugar" @click="jugar()">Empezar</button>
+      <button class="jugar" @click="desarrollo()">desarrollo</button>
     </div>
 
   </div>
@@ -15,6 +16,9 @@ import { ref } from "vue"
 
 function jugar(){
   location.href='../juego.html'
+}
+function desarrollo(){
+  location.href='../desarrollo.html'
 }
 
 </script>
