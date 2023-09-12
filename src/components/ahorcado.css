@@ -1,0 +1,153 @@
+.colina{
+    position: absolute;
+    height: 120px;
+    width: 300px;
+    background-color: rgb(255, 230, 119);
+    border-radius: 300px 300px 0px 0px;
+    border: solid 4px black;
+}
+
+.palo{
+    height: 250%;
+    width: 7%;
+    background-color: rgb(121, 65, 26);
+    position: absolute;
+    bottom: 80%;
+    left: 45%;
+    transform-origin: bottom center;
+    animation: balancearlow 4s infinite ease-in-out;
+    border: solid 3px black;
+}
+
+.palo2{
+    height: 6%;
+    width: 900%;
+    background-color: rgb(121, 65, 26);
+    position: absolute;
+    transform-origin: left center;
+    animation: balancearlow 4s infinite ease-in-out;
+    border: solid 2px black;
+}
+
+.palo2-{
+    height: 60%;
+    width: 40%;
+    background-color: rgb(121, 66, 26);
+    transform-origin: right center;
+    transform: rotate(-38deg);
+    border: solid 2px black;
+}
+
+.cuerda{
+    height: 600%;
+    width: 4%;
+    background-color: rgb(238, 218, 204);
+    z-index: -1;
+    transform-origin: top center;
+    animation: balancear 4s infinite ease-in-out;
+    position: absolute;
+    right: 6%;
+
+}
+
+.cuerda2{
+    height: 7%;
+    width: 470%;
+    background-color: rgb(145, 133, 124);
+    border-radius: 4px;
+    z-index: 2;
+    transform-origin: top center;
+    animation: girar 0s infinite ease-in-out;
+    position: absolute;
+    bottom: 0%;
+    left: -200%;
+    border: solid 2px black;
+}
+
+ @keyframes balancear {
+    0%{
+        transform: rotate(10deg)
+    }
+    50%{
+        transform: rotate(-10deg);
+    }
+
+    100%{
+        transform: rotate(10deg);
+    }
+ }
+
+ @keyframes balancearlow {
+    0%{
+        transform: rotate(3deg)
+    }
+    50%{
+        transform: rotate(-3deg);
+    }
+
+    100%{
+        transform: rotate(3deg);
+    }
+ }
+
+ .contpersona{
+    position: absolute;
+    top: 80%;
+    left: -45%;
+    width: 190%;
+    transform-origin: 50% -5%;
+    animation: balancear 4s infinite ;
+ }
+
+ .cabeza{
+    transform-origin: bottom center;
+    position: absolute;
+    width: 110%;
+    left: -7%;
+    top: -100%;
+    z-index: 3;
+    animation: balancear 4s infinite;
+ }
+ .cuerpo{
+    z-index: -1;
+    width: 100%;
+    z-index: 1;
+ }
+ 
+ .brazoiz{
+    position: absolute;
+    width: 57%;
+    left:-35%;
+    z-index: 2;
+    top: 5%;
+    transform-origin: 100% 8%;
+    animation: balancear 4s infinite;
+ }
+ .brazode{
+    position: absolute;
+    width: 57%;
+    top: 5%;
+    right:-35%;
+    z-index: 2;
+    transform-origin: 0% 8%;
+    animation: balancear 4s infinite;
+ }
+
+ .pieiz{
+    position: absolute;
+    width: 53%;
+    top: 85%;
+    left: -12%;
+    z-index: -1;
+    transform-origin: top right;
+    animation: balancear 4s ease-in infinite;
+ }
+ .piede{
+    position: absolute;
+    width: 53%;
+    top: 85%;
+    right: -12%;
+    z-index: -1;
+    transform-origin: top left;
+    animation: balancear 4s infinite;
+ }
