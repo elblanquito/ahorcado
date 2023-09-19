@@ -30,11 +30,11 @@
         </button>
       </div>
     </div>
-    tema:<input type="number" id="tema" v-model="tema"><br>
-    dificultad:<input type="number" id="dificultad" v-model="dificultad"><br>
+    tema:<input type="number" id="tema" v-model="temainput"><br>
+    dificultad:<input type="number" id="dificultad" v-model="dificultadinput"><br>
     <button @click="empezar()">empezar</button> <br>
-    {{ tema }}
-    {{ dificultad }}
+    {{ temainput }}
+    {{ dificultadinput }}
   </div>
 </template>
 
@@ -43,43 +43,53 @@ import { ref } from "vue";
 
 let letras = [['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],['z', 'x', 'c', 'v', 'b', 'n', 'm']]
 
-let animal = [
-  ['o', 'v', 'e', 'j', 'a'],
-  ['p', 'e', 'r', 'r', 'o'],
-  ['g', 'a', 't', 'o'],
-  ['t', 'i', 'g', 'r', 'e'],
-  ['l', 'e', 'ó', 'n']]
-let color = [
-  ['r', 'o', 'j', 'o'],
-  ['a', 'z', 'u', 'l'],
-  ['v', 'e', 'r', 'd', 'e'],
-  ['a', 'm', 'a', 'r', 'i', 'l', 'l', 'o'],
-  ['n', 'a', 'r', 'a', 'n', 'j', 'a'],
-  ['m', 'o', 'r', 'a', 'd', 'o']]
-let pais = [
-  ['E', 's', 'p', 'a', 'ñ', 'a'],
-  ['F', 'r', 'a', 'n', 'c', 'i', 'a'],
-  ['A', 'l', 'e', 'm', 'a', 'n', 'i', 'a'],
-  ['I', 't', 'a', 'l', 'i', 'a'],
-  ['E', 's', 't', 'a', 'd', 'o', 's', ' ', 'U', 'n', 'i', 'd', 'o', 's'],
-  ['C', 'a', 'n', 'a', 'd', 'á']]
-let fruta = [
-  ['m', 'a', 'n', 'z', 'a', 'n', 'a'],
-  ['p', 'e', 'r', 'a'],
-  ['p', 'l', 'á', 't', 'a', 'n', 'o'],
-  ['u', 'v', 'a'],
-  ['n', 'a', 'r', 'a', 'n', 'j', 'a'],
-  ['l', 'i', 'm', 'ó', 'n']]
+let temas = {
+  animal: [
+    ['o', 'v', 'e', 'j', 'a'],
+    ['p', 'e', 'r', 'r', 'o'],
+    ['g', 'a', 't', 'o'],
+    ['t', 'i', 'g', 'r', 'e'],
+    ['l', 'e', 'ó', 'n']
+  ],
+  color: [
+    ['r', 'o', 'j', 'o'],
+    ['a', 'z', 'u', 'l'],
+    ['v', 'e', 'r', 'd', 'e'],
+    ['a', 'm', 'a', 'r', 'i', 'l', 'l', 'o'],
+    ['n', 'a', 'r', 'a', 'n', 'j', 'a'],
+    ['m', 'o', 'r', 'a', 'd', 'o']
+  ],
+  pais: [
+    ['E', 's', 'p', 'a', 'ñ', 'a'],
+    ['F', 'r', 'a', 'n', 'c', 'i', 'a'],
+    ['A', 'l', 'e', 'm', 'a', 'n', 'i', 'a'],
+    ['I', 't', 'a', 'l', 'i', 'a'],
+    ['C', 'o', 'l', 'o', 'm', 'b', 'i', 'a'],
+    ['C', 'a', 'n', 'a', 'd', 'á']
+  ],
+  fruta: [
+    ['m', 'a', 'n', 'z', 'a', 'n', 'a'],
+    ['p', 'e', 'r', 'a'],
+    ['p', 'l', 'á', 't', 'a', 'n', 'o'],
+    ['u', 'v', 'a'],
+    ['n', 'a', 'r', 'a', 'n', 'j', 'a'],
+    ['l', 'i', 'm', 'ó', 'n']
+  ]
+};
 
-  let temas = [animal,color,pais,fruta]
 
 
-let tema = ref(3)
-let dificultad = ref(1)
+let temainput = ref(3)
+let dificultadinput = ref(1)
+
+function palabraramdom(categoria){
+  let tema = ['animal', 'color', 'pais', 'fruta']
+  
+  return temas[tema[categoria]][Math.floor(Math.random() * temas[tema[categoria]].length)]
+}
 
 function tecla(x){
   console.log ('tecla oprimida: '+ x)
-
   if (tema === 1){grupo = animal}
   else if (tema === 2) {grupo = color}
   else if (tema === 3) {grupo = pais}
@@ -87,7 +97,7 @@ function tecla(x){
 }
 
 function empezar(){
-  console.log('es el: ' + temas[tema.value][1])
+  console.log(palabraramdom(temainput.value))
 }
 
 </script>
