@@ -8,10 +8,10 @@
                     <div class="cuerda2">
                         <div class="contpersona">
                             <img src="../assets/cabeza.png" class="persona cabeza">
-                            <img src="../assets/brazo izquierdo.png" class="persona brazoiz">
-                            <img src="../assets/brazo derecho.png" class="persona brazode">
-                            <img src="../assets/pie izquerdo.png" class="persona pieiz">
-                            <img src="../assets/pie derecho.png" class="persona piede">
+                            <img src="../assets/brazoizquierdo.png" class="persona brazoiz">
+                            <img src="../assets/brazoderecho.png" class="persona brazode">
+                            <img src="../assets/pieizquerdo.png" class="persona pieiz">
+                            <img src="../assets/piederecho.png" class="persona piede">
                             <img src="../assets/cuerpo.png" class="persona cuerpo">
                         </div>
                     </div>
