@@ -35,6 +35,7 @@
     <button @click="empezar()">empezar</button> <br>
     {{ temainput }}
     {{ dificultadinput }}
+    <div class="tablero">{{ tablero }}</div>
   </div>
 </template>
 
@@ -77,10 +78,23 @@ let temas = {
   ]
 };
 
-
+let tablero = ref('_ _ _ _ _ _ _ _')
 
 let temainput = ref(3)
 let dificultadinput = ref(1)
+
+function mostrarletras(palabra, letrasadivinadas){
+  tablero = ""
+
+  for (let i = 0; i < palabra.length; i++) {
+      if (letrasadivinadas.includes(palabra[i])) {
+          tablero += palabra[i] + " ";
+      } else {
+          tablero += "_ ";
+      }
+  }
+  return tablero;
+}
 
 function palabraramdom(categoria){
   let tema = ['animal', 'color', 'pais', 'fruta']
@@ -163,5 +177,14 @@ function empezar(){
 
 #tema,#dificultad{
   width: 40px;
+}
+
+.tablero{
+  width:fit-content;
+  padding: 10px;
+  font-size: 30px;
+  margin: 30px;
+  background-color: rgb(255, 255, 255);
+  border: solid 5px black;
 }
 </style>
