@@ -31,11 +31,11 @@
       </div>
     </div>
     tema:<input type="number" id="tema" v-model="temainput"><br>
-    dificultad:<input type="number" id="dificultad" v-model="dificultadinput"><br>
+    dificultad:<input type="number" id="dificultad" v-model="dificultadinput" ><br>
     <button @click="empezar()">empezar</button> <br>
     {{ temainput }}
     {{ dificultadinput }}
-    <div class="tablero">{{ tablero }}</div>
+    <div class="tablero" :style="{ backgroundColor: tablero_color }" :class="{'error':error}">{{ tablero }}</div>
   </div>
 </template>
 
@@ -74,44 +74,78 @@ let temas = {
     ['p', 'l', 'á', 't', 'a', 'n', 'o'],
     ['u', 'v', 'a'],
     ['n', 'a', 'r', 'a', 'n', 'j', 'a'],
-    ['l', 'i', 'm', 'ó', 'n']
+    ['l', 'i', 'm', 'o', 'n']
   ]
 };
 
 let tablero = ref('_ _ _ _ _ _ _ _')
-
 let temainput = ref(3)
 let dificultadinput = ref(1)
+let letrasadivinadas = []
+let palabra = ''
+let tablero_color = 'white'
+let error = ref(false)
 
 function mostrarletras(palabra, letrasadivinadas){
-  tablero = ""
+  tablero.value = ""
 
   for (let i = 0; i < palabra.length; i++) {
       if (letrasadivinadas.includes(palabra[i])) {
-          tablero += palabra[i] + " ";
+          tablero.value += palabra[i] + " ";
       } else {
-          tablero += "_ ";
+          tablero.value += "_ ";
       }
   }
-  return tablero;
 }
 
 function palabraramdom(categoria){
   let tema = ['animal', 'color', 'pais', 'fruta']
-  
   return temas[tema[categoria]][Math.floor(Math.random() * temas[tema[categoria]].length)]
 }
 
-function tecla(x){
-  console.log ('tecla oprimida: '+ x)
-  if (tema === 1){grupo = animal}
-  else if (tema === 2) {grupo = color}
-  else if (tema === 3) {grupo = pais}
-  else if (tema === 4) {grupo = pais}
+function tecla(letra){
+  console.log ('tecla oprimida: '+ letra)
+  if (palabra.includes(letra)){
+    letrasadivinadas.push(letra)
+    setTimeout(function() {
+      tablero_color = 'rgb(32, 224, 42)'
+      error.value = !error.value
+      setTimeout(function() {
+        error.value = false
+        tablero_color = 'white'
+      }, 300);
+    }, 5);
+  } else {
+    setTimeout(function() {
+      tablero_color = 'red'
+      error.value = !error.value
+      setTimeout(function() {
+        error.value = false
+        tablero_color = 'white'
+      }, 300);
+    }, 5);
+  }
+  if (new Set(palabra).size == letrasadivinadas.length){
+    ganar()
+  }
+  mostrarletras(palabra, letrasadivinadas)
 }
 
 function empezar(){
-  console.log(palabraramdom(temainput.value))
+  letrasadivinadas = []
+  palabra = palabraramdom(temainput.value)
+  console.log(palabra)
+  mostrarletras(palabra, letrasadivinadas)
+}
+
+function ganar(){
+  console.log('FELICIADES')
+  tablero_color = 'rgb(32, 224, 42)'
+}
+
+function perder(){
+  console.log('perderdiste')
+  tablero_color = 'red'
 }
 
 </script>
@@ -128,6 +162,25 @@ function empezar(){
   text-align: center;
 }
 
+@keyframes error {
+  0%{
+    transform: rotate(0deg) scale(1);
+  }
+  25%{
+      transform: rotate(5deg) scale(0.9);
+  }
+  75%{
+    transform: rotate(-5deg) scale(1);
+  }
+  100%{
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.error{
+  animation: error 0.3s ease-in-out;
+}
+
 .cont{
   height: 100vh;
   background-color: rgba(63, 201, 255, 0.994);
@@ -136,6 +189,7 @@ function empezar(){
   width: 200px;
   height: 70px;
   top:50%;
+  
 }
 
 .teclas_cont{
@@ -184,7 +238,7 @@ function empezar(){
   padding: 10px;
   font-size: 30px;
   margin: 30px;
-  background-color: rgb(255, 255, 255);
   border: solid 5px black;
+  transition: background-color 0.5s ;
 }
 </style>
