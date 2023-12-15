@@ -1,11 +1,11 @@
+import App from './App.vue'
 import { createApp } from 'vue'
 import './style.css'
-import App from './App.vue'
-import juego from './components/juego.vue'
-import desarrollo from './components/desarrollo.vue'
+import { router } from "./routes/routes.js";
 
 
-createApp(App).mount('#app')
-createApp(juego).mount('#juego')
-createApp(desarrollo).mount('#desarrollo')
+const app = createApp(App)
+
+app.use(router);
+app.mount('#app')
 
